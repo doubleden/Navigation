@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TabScreen.swift
 //  Navigation
 //
 //  Created by Denis Denisov on 8/9/24.
@@ -11,7 +11,7 @@ enum TabViewPage {
     case first, second, third
 }
 
-struct ContentView: View {
+struct TabScreen: View {
     @State var tabViewPage: TabViewPage = .first
     
     var body: some View {
@@ -41,5 +41,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TabScreen()
 }
