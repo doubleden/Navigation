@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct FirstView: View {
+    @EnvironmentObject private var tabScreenVM: TabScreenViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button("Open 2 in Second View") {
+                withAnimation {
+                    tabScreenVM.tabViewPage = .second
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    tabScreenVM.isShowDetailsOf2.toggle()
+                }
+            }
+            .buttonStyle(.borderedProminent)
+        }
     }
 }
 
 #Preview {
     FirstView()
+        .environmentObject(TabScreenViewModel())
 }

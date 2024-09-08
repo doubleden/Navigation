@@ -1,5 +1,5 @@
 //
-//  TabScreen.swift
+//  TabScreenView.swift
 //  Navigation
 //
 //  Created by Denis Denisov on 8/9/24.
@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-enum TabViewPage {
-    case first, second, third
-}
-
-struct TabScreen: View {
-    @State private var tabViewPage: TabViewPage = .first
+struct TabScreenView: View {
+    @StateObject private var tabScreenVM = TabScreenViewModel()
     
     var body: some View {
-        TabView(selection: $tabViewPage) {
+        TabView(selection: $tabScreenVM.tabViewPage) {
             FirstView()
                 .tabItem {
                     Image(systemName: "1.circle")
@@ -37,9 +33,10 @@ struct TabScreen: View {
                 }
                 .tag(TabViewPage.third)
         }
+        .environmentObject(tabScreenVM)
     }
 }
 
 #Preview {
-    TabScreen()
+    TabScreenView()
 }
