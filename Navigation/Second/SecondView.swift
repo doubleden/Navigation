@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SecondView: View {
-    let numbers = [1, 2, 3, 4]
+    private let numbers = [1, 2, 3, 4]
     
     var body: some View {
         NavigationStack {

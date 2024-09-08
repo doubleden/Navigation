@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct ThirdView: View {
+    @State private var isPresented = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button("Open modal") {
+                isPresented.toggle()
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .sheet(isPresented: $isPresented) {
+            ThirdModalView()
+                .presentationDragIndicator(.visible)
+        }
     }
 }
 

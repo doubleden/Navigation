@@ -12,7 +12,7 @@ enum TabViewPage {
 }
 
 struct TabScreen: View {
-    @State var tabViewPage: TabViewPage = .first
+    @State private var tabViewPage: TabViewPage = .first
     
     var body: some View {
         TabView(selection: $tabViewPage) {
