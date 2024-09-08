@@ -7,15 +7,36 @@
 
 import SwiftUI
 
+enum TabViewPage {
+    case first, second, third
+}
+
 struct ContentView: View {
+    @State var tabViewPage: TabViewPage = .first
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(selection: $tabViewPage) {
+            FirstView()
+                .tabItem {
+                    Image(systemName: "1.circle")
+                    Text("First")
+                }
+                .tag(TabViewPage.first)
+            
+            SecondView()
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Second")
+                }
+                .tag(TabViewPage.second)
+            
+            ThirdView()
+                .tabItem {
+                    Image(systemName: "3.circle")
+                    Text("Third")
+                }
+                .tag(TabViewPage.third)
         }
-        .padding()
     }
 }
 
