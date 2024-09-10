@@ -14,22 +14,19 @@ struct TabScreenView: View {
         TabView(selection: $tabScreenVM.tabViewPage) {
             FirstView()
                 .tabItem {
-                    Image(systemName: "1.circle")
-                    Text("First")
+                    Label("First", systemImage: "1.circle")
                 }
                 .tag(TabViewPage.first)
             
             SecondView()
                 .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Second")
+                    Label("Second", systemImage: "2.circle")
                 }
                 .tag(TabViewPage.second)
             
             ThirdView()
                 .tabItem {
-                    Image(systemName: "3.circle")
-                    Text("Third")
+                    Label("Third", systemImage: "3.circle")
                 }
                 .tag(TabViewPage.third)
         }

@@ -9,19 +9,19 @@ import SwiftUI
 
 struct FirstView: View {
     @EnvironmentObject private var tabScreenVM: TabScreenViewModel
+    @State private var currentValue = 0.0
     
     var body: some View {
         VStack {
             Button("Open 2 in Second View") {
-                withAnimation {
-                    tabScreenVM.tabViewPage = .second
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    tabScreenVM.isShowDetailsOf2.toggle()
-                }
+                tabScreenVM.openItem2InSecondView()
             }
             .buttonStyle(.borderedProminent)
+            
+            SliderRepresentation(currentValue: $currentValue)
+            Text(Int(currentValue).formatted())
         }
+        .padding()
     }
 }
 
