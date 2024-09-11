@@ -12,17 +12,15 @@ struct SecondView: View {
     private let numbers = [1, 2, 3, 4]
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $tabScreen.pathsForItemsInSecondView) {
             List(numbers, id: \.self) { number in
-                NavigationLink(number.formatted()) {
-                    SecondDetailsView(number: number)
+                NavigationLink(value: number) {
+                    Text(number.formatted())
                 }
             }
             .navigationTitle("Second")
-            .navigationDestination(
-                isPresented: $tabScreen.isShowDetailsOf2
-            ) {
-                SecondDetailsView(number: numbers[1])
+            .navigationDestination(for: Int.self) { value in
+                SecondDetailsView(number: value)
             }
         }
     }
