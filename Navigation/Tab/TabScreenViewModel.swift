@@ -14,7 +14,6 @@ enum TabViewPage {
 
 final class TabScreenViewModel: ObservableObject {
     @Published var tabViewPage: TabViewPage = .first
-    @Published var isShowDetailsOf2 = false
     @Published var pathsForItemsInSecondView: [Int] = []
     
     func openItem2InSecondView() {
